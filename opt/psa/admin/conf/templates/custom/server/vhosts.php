@@ -28,6 +28,7 @@
 
 <?php if ($ipAddress->sslCertificate->ca): ?>
         SSLCACertificateFile "<?php echo $ipAddress->sslCertificate->caFilePath ?>"
+        SSLUseStapling on
 <?php endif; ?>
 <?php endif; ?>
 <?php else: ?>

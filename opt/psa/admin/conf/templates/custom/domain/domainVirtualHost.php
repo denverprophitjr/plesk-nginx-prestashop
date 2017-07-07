@@ -7,7 +7,7 @@
 <?php if ($OPT['ssl']): ?>
 <IfModule mod_ssl.c>
 <?php endif; ?>
-
+SSLStaplingCache shmcb:/tmp/stapling_cache(128000)
 <VirtualHost <?php echo $OPT['ipAddress']->escapedAddress ?>:<?php echo $OPT['ssl'] ? $VAR->server->webserver->httpsPort : $VAR->server->webserver->httpPort ?> <?php echo ($VAR->server->webserver->proxyActive && $OPT['ipAddress']->isIpV6()) ? "127.0.0.1:" . ($OPT['ssl'] ? $VAR->server->webserver->httpsPort : $VAR->server->webserver->httpPort) : ''; ?>>
     ServerName "<?php echo $VAR->domain->asciiName ?>:<?php echo $OPT['ssl'] ? $VAR->server->webserver->frontendHttpsPort : $VAR->server->webserver->frontendHttpPort ?>"
     <?php if ($VAR->domain->isWildcard): ?>
@@ -121,13 +121,12 @@
 <?php if ($sslCertificate->ce): ?>
     SSLEngine on
     SSLVerifyClient none
-    SSLCertificateFile <?php echo $sslCertificate->ceFilePath ?>
+    SSLCertificateFile "<?php echo $sslCertificate->ceFilePath ?>"
 
 <?php if ($sslCertificate->ca): ?>
-    SSLCACertificateFile <?php echo $sslCertificate->caFilePath ?>
-    ssl_stapling on
-    ssl_stapling_verify on
+    SSLCACertificateFile "<?php echo $sslCertificate->caFilePath ?>"
 <?php endif; ?>
+    SSLUseStapling on
 <?php endif; ?>
 <?php else: ?>
     <IfModule mod_ssl.c>
