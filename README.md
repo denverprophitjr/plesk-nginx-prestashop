@@ -3,3 +3,6 @@ This guide hopes to secure your Plesk Onyx server / domain. And, ensure that Pre
 
 ## This repository is still beta
 You should not use our tag releases until we reach 1.0 Feel free to fork and contribute, though.
+
+## Contributors List
+[Contributors](CONTRIBUTORS.md)
