@@ -125,8 +125,8 @@
 
 <?php if ($sslCertificate->ca): ?>
     SSLCACertificateFile <?php echo $sslCertificate->caFilePath ?>
-    ssl_stapling on;
-    ssl_stapling_verify on;
+    ssl_stapling on
+    ssl_stapling_verify on
 <?php endif; ?>
 <?php endif; ?>
 <?php else: ?>
