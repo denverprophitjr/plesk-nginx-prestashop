@@ -58,9 +58,10 @@ if (!$VAR->domain->webmail->isActive) {
         SSLEngine on
         SSLVerifyClient none
         SSLCertificateFile <?php echo $sslCertificate->ceFilePath ?>
-
+        SSLUseStapling on
     <?php if ($sslCertificate->ca): ?>
         SSLCACertificateFile <?php echo $sslCertificate->caFilePath ?>
+        SSLUseStapling on
     <?php endif; ?>
     <?php endif; ?>
 

@@ -69,7 +69,7 @@
     SSLEngine on
     SSLVerifyClient none
     SSLCertificateFile "<?php echo $VAR->server->defaultSslCertificate->ceFilePath ?>"
-
+    SSLUseStapling on
 <?php echo $VAR->includeTemplate('domain/PCI_compliance.php') ?>
 
     <Directory <?php echo $VAR->server->mailman->varDir ?>/archives/>
