@@ -7,7 +7,8 @@
 server {
     listen <?php echo "{$ipAddress->escapedAddress}:{$OPT['frontendPort']}" .
         ($ipAddress->isIpV6 ? ' ipv6only=on' : '') .
-        ($OPT['ssl'] ? ' ssl' : '') ?>;
+        ($OPT['ssl'] ? ' ssl' : '') .
+                      ( $OPT['ssl'] && $VAR->domain->physicalHosting->proxySettings['nginxHttp2'] ? ' http2' : '' ) ?>;
 
 <?php if ($OPT['ssl']): ?>
 <?php $sslCertificate = $ipAddress->sslCertificate; ?>
@@ -22,7 +23,7 @@ server {
 <?php       endif ?>
 <?php   endif ?>
 <?php endif ?>
-
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
 <?php echo $VAR->includeTemplate('service/nginxSitePreview.php') ?>
 
     location / {

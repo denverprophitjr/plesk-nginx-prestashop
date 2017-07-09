@@ -368,7 +368,7 @@ echo $VAR->includeTemplate('domain/service/bandWidth.php') . "\n";
     <IfModule mod_headers.c>
     <?php foreach ((array)$VAR->domain->physicalHosting->headers as list($name, $value)): ?>
         Header add <?=$VAR->quote([$name, $value])?>
-
+        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
     <?php endforeach ?>
     </IfModule>
 <?php endif ?>

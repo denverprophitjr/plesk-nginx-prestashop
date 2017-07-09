@@ -34,7 +34,7 @@ server {
 <?php       endif ?>
 <?php   endif ?>
 <?php endif ?>
-
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
     client_max_body_size 128m;
 
     location / {
