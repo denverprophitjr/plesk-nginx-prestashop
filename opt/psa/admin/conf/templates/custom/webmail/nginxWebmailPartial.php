@@ -7,7 +7,7 @@ if (!$VAR->domain->webmail->isActive) {
 ?>
 <?php foreach ($VAR->domain->webmail->ipAddresses as $ipAddress): ?>
 server {
-    listen <?php echo $ipAddress->escapedAddress . ':' . $OPT['frontendPort'] . ($OPT['ssl'] ? ' ssl' : '') ?>;
+    listen <?php echo $ipAddress->escapedAddress . ':' . $OPT['frontendPort'] . ($OPT['ssl'] ? ' ssl' : '') ?> http2;
     server_name "webmail.<?php echo $VAR->domain->asciiName ?>";
     <?php foreach ($VAR->domain->mailAliases as $alias): ?>
         server_name  "webmail.<?php echo $alias->asciiName ?>";
@@ -22,6 +22,8 @@ server {
     ssl_certificate_key         <?php echo $sslCertificate->ceFilePath ?>;
 <?php       if ($sslCertificate->ca): ?>
     ssl_client_certificate      <?php echo $sslCertificate->caFilePath ?>;
+    ssl_stapling on;
+    ssl_stapling_verify on;
 <?php       endif ?>
 <?php   endif ?>
 <?php endif ?>
