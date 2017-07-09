@@ -39,7 +39,13 @@ server {
     ssl_certificate_key         <?php echo $sslCertificate->ceFilePath ?>;
         <?php if ($sslCertificate->ca): ?>
     ssl_client_certificate      <?php echo $sslCertificate->caFilePath ?>;
-    ssl_trusted_certificate        <?php echo $sslCertificate->caFilePath ?>;
+    ssl_verify_client on;
+    ssl_verify_depth 2;
+
+    ssl_trusted_certificate     <?php echo $sslCertificate->caFilePath ?>;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_session_tickets off;
     ssl_stapling on;
     ssl_stapling_verify on;
         <?php endif ?>

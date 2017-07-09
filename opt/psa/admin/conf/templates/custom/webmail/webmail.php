@@ -57,10 +57,18 @@ if (!$VAR->domain->webmail->isActive) {
     <?php if ($sslCertificate->ce): ?>
         SSLEngine on
         SSLVerifyClient none
+        SSLSessionCacheTimeout 600
         SSLCertificateFile '<?php echo $sslCertificate->ceFilePath ?>'
     <?php if ($sslCertificate->ca): ?>
         SSLCACertificateFile '<?php echo $sslCertificate->caFilePath ?>'
+        SSLVerifyClient require
+        SSLVerifyDepth 2
+        SSLCompression          off
+        SSLSessionTickets       off
         SSLUseStapling on
+        SSLStaplingResponderTimeout 5
+        SSLStaplingReturnResponderErrors off
+        SSLStaplingCache shmcb:/var/run/ocsp(128000)
     <?php endif; ?>
     <?php endif; ?>
 

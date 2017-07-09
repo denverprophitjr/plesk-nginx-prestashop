@@ -120,15 +120,18 @@ SSLStaplingCache shmcb:/tmp/stapling_cache(128000)
     $OPT['ipAddress']->sslCertificate; ?>
 <?php if ($sslCertificate->ce): ?>
     SSLEngine on
-    SSLVerifyClient none
     SSLCertificateFile "<?php echo $sslCertificate->ceFilePath ?>"
-
+    SSLSessionCacheTimeout 600
 <?php if ($sslCertificate->ca): ?>
     SSLCACertificateFile "<?php echo $sslCertificate->caFilePath ?>"
+    SSLVerifyClient require
+    SSLVerifyDepth 2
+    SSLCompression          off
+    SSLSessionTickets       off
     SSLUseStapling on
     SSLStaplingResponderTimeout 5
     SSLStaplingReturnResponderErrors off
-    SSLStaplingCache        shmcb:/var/run/ocsp(128000)
+    SSLStaplingCache shmcb:/var/run/ocsp(128000)
 <?php endif; ?>
 
 <?php endif; ?>
