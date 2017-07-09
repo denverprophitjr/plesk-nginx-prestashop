@@ -1,3 +1,4 @@
+![thirty bees shopping cart hosted on plesk onyx nginx](img/thirt-bees-plesk.png?raw=true "thirty bees Shopping Cart Hosted on Plesk Onyx NGINX")
 # Secure Plesk Onyx With Custom Templates
 This guide hopes to secure your Plesk Onyx server / domain. And, ensure that PrestaShop will run with NGINX as its proxy server using fastCGI Proxy.
 
