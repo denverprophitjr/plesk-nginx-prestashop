@@ -7,7 +7,7 @@ if (!$VAR->domain->webmail->isActive) {
 ?>
 <?php foreach ($VAR->domain->webmail->ipAddresses as $ipAddress): ?>
 server {
-    listen <?php echo $ipAddress->escapedAddress . ':' . $OPT['frontendPort'] . ($OPT['ssl'] ? ' ssl' : '') ?> http2;
+    listen <?php echo $ipAddress->escapedAddress . ':' . $OPT['frontendPort'] . ($OPT['ssl'] ? ' ssl http2' : '') ?>;
     server_name "webmail.<?php echo $VAR->domain->asciiName ?>";
     <?php foreach ($VAR->domain->mailAliases as $alias): ?>
         server_name  "webmail.<?php echo $alias->asciiName ?>";
