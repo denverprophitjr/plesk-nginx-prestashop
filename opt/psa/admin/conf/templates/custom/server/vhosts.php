@@ -29,7 +29,7 @@
 <?php if ($ipAddress->sslCertificate->ca): ?>
         SSLCACertificateFile "<?php echo $ipAddress->sslCertificate->caFilePath ?>"
         SSLUseStapling on
-        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
 <?php endif; ?>
 <?php endif; ?>
 <?php else: ?>

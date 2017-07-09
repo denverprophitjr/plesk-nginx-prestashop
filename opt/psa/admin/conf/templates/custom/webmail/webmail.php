@@ -69,7 +69,7 @@ SSLStaplingCache shmcb:/var/run/ocsp(128000)
         SSLUseStapling on
         SSLStaplingResponderTimeout 5
         SSLStaplingReturnResponderErrors off
-        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" preload; always;
     <?php endif; ?>
     <?php endif; ?>
 
