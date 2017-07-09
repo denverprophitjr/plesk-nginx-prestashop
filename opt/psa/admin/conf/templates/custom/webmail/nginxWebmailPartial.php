@@ -11,7 +11,7 @@ server {
 	                  ( $OPT['ssl'] && $VAR->domain->physicalHosting->proxySettings['nginxHttp2'] ? ' http2' : '' ) ?>;
     server_name "webmail.<?php echo $VAR->domain->asciiName ?>";
     <?php foreach ($VAR->domain->mailAliases as $alias): ?>
-        server_name  "webmail.<?php echo $alias->asciiName ?>";
+    server_name  "webmail.<?php echo $alias->asciiName ?>";
     <?php endforeach; ?>
 
 <?php if ($OPT['ssl']): ?>
@@ -23,7 +23,7 @@ server {
     ssl_certificate_key         <?php echo $sslCertificate->ceFilePath ?>;
 <?php       if ($sslCertificate->ca): ?>
     ssl_client_certificate      <?php echo $sslCertificate->caFilePath ?>;
-                ssl_trusted_certificate     <?php echo $sslCertificate->caFilePath ?>;
+    ssl_trusted_certificate     <?php echo $sslCertificate->caFilePath ?>;
     ssl_stapling on;
     ssl_stapling_verify on;
 <?php       endif ?>
