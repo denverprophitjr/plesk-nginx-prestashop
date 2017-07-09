@@ -126,6 +126,9 @@ SSLStaplingCache shmcb:/tmp/stapling_cache(128000)
 <?php if ($sslCertificate->ca): ?>
     SSLCACertificateFile "<?php echo $sslCertificate->caFilePath ?>"
     SSLUseStapling on
+    SSLStaplingResponderTimeout 5
+    SSLStaplingReturnResponderErrors off
+    SSLStaplingCache        shmcb:/var/run/ocsp(128000)
 <?php endif; ?>
 
 <?php endif; ?>
