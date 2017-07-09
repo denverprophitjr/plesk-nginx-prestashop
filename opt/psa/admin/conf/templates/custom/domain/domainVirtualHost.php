@@ -131,7 +131,6 @@ SSLStaplingCache shmcb:/tmp/stapling_cache(128000)
     SSLUseStapling on
     SSLStaplingResponderTimeout 5
     SSLStaplingReturnResponderErrors off
-    SSLStaplingCache shmcb:/var/run/ocsp(128000)
 <?php endif; ?>
 
 <?php endif; ?>

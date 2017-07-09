@@ -6,6 +6,7 @@ if (!$VAR->domain->webmail->isActive) {
     return;
 }
 ?>
+SSLStaplingCache shmcb:/var/run/ocsp(128000)
 <?php foreach ($VAR->domain->webmail->ipAddresses as $ipAddress): ?>
 <VirtualHost <?php
     echo "{$ipAddress->escapedAddress}:{$VAR->server->webserver->httpPort}";
@@ -68,7 +69,6 @@ if (!$VAR->domain->webmail->isActive) {
         SSLUseStapling on
         SSLStaplingResponderTimeout 5
         SSLStaplingReturnResponderErrors off
-        SSLStaplingCache shmcb:/var/run/ocsp(128000)
     <?php endif; ?>
     <?php endif; ?>
 
