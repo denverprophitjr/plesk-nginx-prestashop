@@ -124,7 +124,6 @@ SSLStaplingCache shmcb:/tmp/stapling_cache(128000)
     SSLSessionCacheTimeout 600
 <?php if ($sslCertificate->ca): ?>
     SSLCACertificateFile "<?php echo $sslCertificate->caFilePath ?>"
-    SSLVerifyClient require
     SSLVerifyDepth 2
     SSLCompression          off
     SSLSessionTickets       off
