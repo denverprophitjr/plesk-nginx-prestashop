@@ -23,6 +23,12 @@ server {
     ssl_certificate_key         <?php echo $sslCertificate->ceFilePath ?>;
 <?php       if ($sslCertificate->ca): ?>
     ssl_client_certificate      <?php echo $sslCertificate->caFilePath ?>;
+    ssl_verify_client on;
+    ssl_verify_depth 2;
+
+    if ($ssl_client_i_dn != "CN=GlobalSign Root CA") {
+    return 403;
+    }
     ssl_trusted_certificate     <?php echo $sslCertificate->caFilePath ?>;
     ssl_stapling on;
     ssl_stapling_verify on;
