@@ -74,7 +74,7 @@ server {
     root "<?php echo $OPT['ssl'] ? $VAR->domain->physicalHosting->httpsDir : $VAR->domain->physicalHosting->httpDir ?>";
     access_log "<?php echo $VAR->domain->physicalHosting->logsDir . '/' . ($OPT['ssl'] ? 'proxy_access_ssl_log' : 'proxy_access_log') ?>";
     error_log "<?php echo $VAR->domain->physicalHosting->logsDir . '/proxy_error_log' ?>";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload;" always;
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
 <?php if ($OPT['default']): ?>
     <?php echo $VAR->includeTemplate('service/nginxSitePreview.php') ?>
 <?php endif ?>
