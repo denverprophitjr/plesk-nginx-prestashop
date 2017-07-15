@@ -69,7 +69,7 @@ CustomLog  "|<?php echo $VAR->server->productRootDir ?>/admin/sbin/pipelog <?php
 
 <?php if (!$VAR->server->webserver->proxyActive): ?>
 <IfModule mod_headers.c>
-    Header add X-Powered-By PleskLin
+    Header add X-Powered-By Open Source
 </IfModule>
 <?php endif ?>
 

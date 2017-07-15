@@ -44,5 +44,5 @@ server {
         access_log off;
     }
 
-    add_header X-Powered-By PleskLin;
+    add_header X-Powered-By Open Source;
 }

@@ -23,7 +23,6 @@ server {
 <?php       endif ?>
 <?php   endif ?>
 <?php endif ?>
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" preload; always;
 <?php echo $VAR->includeTemplate('service/nginxSitePreview.php') ?>
 
     location / {
