@@ -169,7 +169,7 @@ server {
 <?php foreach ((array)$VAR->domain->physicalHosting->headers as list($name, $value)): ?>
     add_header <?=$VAR->quote([$name, $value])?>;
 <?php endforeach ?>
-    add_header X-Powered-By Open Source Software;
+    add_header X-Powered-By "Open Source Software";
 
 <?php if (is_file($VAR->domain->physicalHosting->customNginxConfigFile)): ?>
     include "<?php echo $VAR->domain->physicalHosting->customNginxConfigFile ?>";
