@@ -48,6 +48,7 @@ server {
     ssl_session_tickets off;
     ssl_stapling on;
     ssl_stapling_verify on;
+    http2_idle_timeout 5m; # up from 3m default
         <?php endif ?>
     <?php endif ?>
 <?php endif ?>
